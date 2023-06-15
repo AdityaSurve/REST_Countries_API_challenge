@@ -81,7 +81,6 @@ export default function App() {
               )
             }
           />
-          <Route path="/flag" />
         </Routes>
       </Router>
     </div>
