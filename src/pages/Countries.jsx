@@ -208,6 +208,12 @@ function Countries({ darkMode }) {
                 population={country.population}
                 region={country.region}
                 capital={country.capital}
+                nativeName={country.nativeName}
+                subRegion={country.subregion}
+                topLevelDomain={country.topLevelDomain}
+                currencies={country.currencies}
+                languages={country.languages}
+                borders={country.borders}
                 darkMode={true}
               />
             ) : (
@@ -217,6 +223,12 @@ function Countries({ darkMode }) {
                 population={country.population}
                 region={country.region}
                 capital={country.capital}
+                nativeName={country.nativeName}
+                subRegion={country.subregion}
+                topLevelDomain={country.topLevelDomain}
+                currencies={country.currencies}
+                languages={country.languages}
+                borders={country.borders}
                 darkMode={false}
               />
             )}
