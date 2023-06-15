@@ -22,7 +22,7 @@ function Countries({ darkMode }) {
     : filteredCountries;
 
   return (
-    <div className="min-h-screen h-auto overflow-x-hidden font-naru w-full pt-32 flex flex-col items-center bg-transparent">
+    <div className="min-h-screen h-auto overflow-x-hidden font-naru w-full py-32 flex flex-col items-center bg-transparent">
       <div className="flex justify-between px-[12%] items-center w-full ">
         <div
           className={
@@ -61,8 +61,8 @@ function Countries({ darkMode }) {
         <div
           className={
             darkMode
-              ? `bg-darkBlue w-[15rem] relative px-5 py-3 rounded-md flex justify-between items-center`
-              : `bg-white w-[15rem] border-2 border-darkGray relative px-5 py-3 rounded-md flex justify-between items-center`
+              ? `bg-darkBlue cursor-pointer w-[15rem] relative px-5 py-3 rounded-md flex justify-between items-center`
+              : `bg-white cursor-pointer w-[15rem] border-2 border-darkGray relative px-5 py-3 rounded-md flex justify-between items-center`
           }
           onClick={() => setShowRegions(!showRegions)}
         >

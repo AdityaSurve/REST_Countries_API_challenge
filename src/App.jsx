@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { Countries, Home, Flag } from "./pages";
+import { Countries, Home } from "./pages";
 import { useState } from "react";
 export default function App() {
   const [darkMode, setDarkMode] = useState(true);
@@ -9,11 +9,11 @@ export default function App() {
   const [bodyColor, setBodyColor] = useState("bg-veryDarkBlue");
   return (
     <div
-      className={`h-screen overflow-x-hidden w-screen ${bodyColor} ${textColor}`}
+      className={`h-screen overflow-x-hidden w-screen ${bodyColor} ${textColor} transition-all duration-500`}
     >
       <Router>
         <div
-          className={`fixed px-16 z-[10000] top-0 w-full h-[10%] flex justify-between  items-center ${color} shadow-md ${shadow}`}
+          className={`fixed cursor-pointer px-16 z-[10000] top-0 w-full h-[10%] flex justify-between  items-center ${color} shadow-md ${shadow} transition-all duration-500`}
         >
           <div className="text-xl font-bold">Where in the world?</div>
           <div
@@ -65,7 +65,12 @@ export default function App() {
           </div>
         </div>
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route
+            path="/"
+            element={
+              darkMode ? <Home darkMode={true} /> : <Home darkMode={false} />
+            }
+          />
           <Route
             path="/countries"
             element={
@@ -76,7 +81,7 @@ export default function App() {
               )
             }
           />
-          <Route path="/flag" element={<Flag />} />
+          <Route path="/flag" />
         </Routes>
       </Router>
     </div>

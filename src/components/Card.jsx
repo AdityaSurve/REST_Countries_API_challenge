@@ -6,8 +6,8 @@ function Card(props) {
     <div
       className={
         darkMode
-          ? `h-[24rem] w-[16rem] font-naru text-white rounded-lg overflow-hidden bg-darkBlue shadow-md shadow-veryDarkBlue`
-          : `h-[24rem] w-[16rem] font-naru rounded-lg overflow-hidden text-veryDarkBlue2 bg-white shadow-md shadow-darkGray`
+          ? `h-[24rem] cursor-pointer active:ring-[0.5em] active:ring-[#69696920] w-[16rem] font-naru text-white rounded-lg overflow-hidden bg-darkBlue shadow-md shadow-veryDarkBlue`
+          : `h-[24rem] cursor-pointer active:ring-[0.5em] active:ring-[#69696920] w-[16rem] font-naru rounded-lg overflow-hidden text-veryDarkBlue2 bg-white shadow-md shadow-darkGray`
       }
     >
       <img
