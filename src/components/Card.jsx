@@ -53,8 +53,8 @@ function Card(props) {
         <div
           className={
             darkMode
-              ? `fixed z-[100] px-32 bg-veryDarkBlue text-white h-screen w-screen flex flex-col justify-start items-center top-0 left-0 py-32`
-              : `fixed z-[100] px-32 h-screen bg-white text-veryDarkBlue2 w-screen flex flex-col justify-start items-center top-0 left-0 py-32`
+              ? `fixed z-[100] bg-veryDarkBlue text-white h-screen w-screen flex flex-col justify-start items-center top-0 left-0 p-32`
+              : `fixed z-[100] h-screen bg-white text-veryDarkBlue2 w-screen flex flex-col justify-start items-center top-0 left-0 p-32`
           }
         >
           <div className="w-full h-32 flex items-start mx-32">
@@ -82,13 +82,13 @@ function Card(props) {
               <div>Back</div>
             </div>
           </div>
-          <div className="flex gap-[10em] h-[25rem] w-[80em] items-center">
-            <div className="h-full w-[35rem]">
+          <div className="flex md:flex-col lg:flex-row gap-10 lg:gap-[10em] h-[25rem] w-[80em] items-center">
+            <div className="h-full md:w-[25rem] lg:w-[35rem]">
               <img src={image} alt="" className="w-full h-full object-fill" />
             </div>
             <div className="h-full w-[35em] flex flex-col justify-center gap-10">
               <div className="text-3xl font-bold">{name}</div>
-              <div className="flex gap-10 text-left my-4">
+              <div className="flex md:flex-col lg:flex-row gap-10 text-left my-4">
                 <div className="text-sm flex flex-col gap-2">
                   <div>
                     <span className="font-semibold">Native Name:</span>{" "}
@@ -154,8 +154,8 @@ function Card(props) {
 Card.propTypes = {
   name: PropTypes.string.isRequired,
   image: PropTypes.string.isRequired,
-  population: PropTypes.number.isRequired,
-  region: PropTypes.string.isRequired,
+  population: PropTypes.number,
+  region: PropTypes.string,
   capital: PropTypes.string,
   nativeName: PropTypes.string,
   subRegion: PropTypes.string,

@@ -27,8 +27,8 @@ function Countries({ darkMode }) {
         <div
           className={
             darkMode
-              ? `bg-darkBlue  w-[30em] relative p-4 rounded-md flex items-center gap-5`
-              : `bg-white border-2 border-darkGray  w-[30em] relative p-4 rounded-md flex items-center gap-5 `
+              ? `bg-darkBlue w-[10em] md:w-[15em] lg:w-[30em] relative p-4 rounded-md flex items-center gap-5`
+              : `bg-white border-2 border-darkGray w-[10em] md:w-[15em] lg:w-[30em] relative p-4 rounded-md flex items-center gap-5 `
           }
         >
           <svg
@@ -61,12 +61,12 @@ function Countries({ darkMode }) {
         <div
           className={
             darkMode
-              ? `bg-darkBlue cursor-pointer w-[15rem] relative px-5 py-3 rounded-md flex justify-between items-center`
-              : `bg-white cursor-pointer w-[15rem] border-2 border-darkGray relative px-5 py-3 rounded-md flex justify-between items-center`
+              ? `bg-darkBlue cursor-pointer w-auto md:w-[15rem] relative px-5 py-3 rounded-md flex justify-between items-center`
+              : `bg-white cursor-pointer w-auto md:w-[15rem] border-2 border-darkGray relative px-5 py-3 rounded-md flex justify-between items-center`
           }
           onClick={() => setShowRegions(!showRegions)}
         >
-          {dropdownDisplay}
+          <span className="md:block hidden">{dropdownDisplay}</span>
           {!showRegions ? (
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -113,7 +113,7 @@ function Countries({ darkMode }) {
                 }}
                 className={
                   darkMode
-                    ? `hover:bg-veryDarkBlue2 py-2 cursor-pointer`
+                    ? `hover:bg-veryDarkBlue2 py-2 cursor-pointer `
                     : `hover:bg-darkGray py-2 cursor-pointer`
                 }
               >
@@ -198,7 +198,7 @@ function Countries({ darkMode }) {
           )}
         </div>
       </div>
-      <div className="grid grid-cols-4 gap-10 mt-20 justify-center items-center">
+      <div className="grid grid-col-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mt-20 justify-center items-center">
         {regionFilteredCountries.map((country) => (
           <div key={country.alpha3Code}>
             {darkMode ? (
