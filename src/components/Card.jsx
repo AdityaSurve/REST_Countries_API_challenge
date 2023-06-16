@@ -53,16 +53,16 @@ function Card(props) {
         <div
           className={
             darkMode
-              ? `fixed z-[100] bg-veryDarkBlue text-white h-screen w-screen flex flex-col justify-start items-center top-0 left-0 p-32`
-              : `fixed z-[100] h-screen bg-white text-veryDarkBlue2 w-screen flex flex-col justify-start items-center top-0 left-0 p-32`
+              ? `fixed z-[100] bg-veryDarkBlue text-white h-screen w-screen flex flex-col justify-start items-center top-0 left-0 p-24 md:p-32`
+              : `fixed z-[100] h-screen bg-white text-veryDarkBlue2 w-screen flex flex-col justify-start items-center top-0 left-0 p-24 md:p-32`
           }
         >
           <div className="w-full h-32 flex items-start mx-32">
             <div
               className={
                 darkMode
-                  ? `w-auto flex rounded-md gap-5 px-8 py-2 justify-center items-center h-[3rem] bg-darkBlue shadow-md shadow-veryDarkBlue2 text-white`
-                  : `w-auto flex rounded-md gap-5 px-8 py-2 justify-center items-center h-[3rem] bg-white shadow-md shadow-darkGray text-veryDarkBlue2`
+                  ? `w-auto flex rounded-md gap-5 px-8 py-2 justify-center items-center h-[2em] md:h-[3rem] bg-darkBlue shadow-md shadow-veryDarkBlue2 text-white`
+                  : `w-auto flex rounded-md gap-5 px-8 py-2 justify-center items-center h-[2em] md:h-[3rem] bg-white shadow-md shadow-darkGray text-veryDarkBlue2`
               }
               onClick={() => setShowCountry(!showCountry)}
             >
@@ -82,13 +82,13 @@ function Card(props) {
               <div>Back</div>
             </div>
           </div>
-          <div className="flex md:flex-col lg:flex-row gap-10 lg:gap-[10em] h-[25rem] w-[80em] items-center">
-            <div className="h-full md:w-[25rem] lg:w-[35rem]">
+          <div className="flex flex-col mt-5 md:mt-0 lg:flex-row gap-2 md:gap-10 lg:gap-[10em] h-[25rem] w-[80em] items-center">
+            <div className="h-full w-[15%] md:w-[25rem] lg:w-[35rem]">
               <img src={image} alt="" className="w-full h-full object-fill" />
             </div>
-            <div className="h-full w-[35em] flex flex-col justify-center gap-10">
+            <div className="h-full w-[35em] flex items-center md:items-start flex-col justify-center gap-2 md:gap-10">
               <div className="text-3xl font-bold">{name}</div>
-              <div className="flex md:flex-col lg:flex-row gap-10 text-left my-4">
+              <div className="flex flex-col lg:flex-row gap-2 md:gap-10 text-left my-4">
                 <div className="text-sm flex flex-col gap-2">
                   <div>
                     <span className="font-semibold">Native Name:</span>{" "}
@@ -125,16 +125,16 @@ function Card(props) {
                 </div>
               </div>
               <div className="flex items-start">
-                <div className="flex justify-center items-center gap-5">
+                <div className="flex justify-center items-start md:items-center gap-5">
                   <span className="font-semibold">Border Countries:</span>{" "}
-                  <div className="flex gap-2">
+                  <div className="md:flex text-xs md:text-base grid grid-cols-2 gap-2">
                     {borders.map((border) => (
                       <div
                         key={border}
                         className={
                           darkMode
-                            ? `bg-darkBlue border-2 border-veryDarkBlue2 text-white px-3 py-2 rounded-sm`
-                            : `bg-white border-2 border-darkGray text-darkGray px-3 py-2 rounded-sm `
+                            ? `bg-darkBlue border-2 border-veryDarkBlue2 text-white px-2 py-0 md:px-3 md:py-2 rounded-sm`
+                            : `bg-white border-2 border-darkGray text-darkGray px-2 py-0 md:px-3 md:py-2 rounded-sm `
                         }
                       >
                         {border}
