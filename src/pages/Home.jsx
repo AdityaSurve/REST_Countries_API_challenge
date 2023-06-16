@@ -24,7 +24,7 @@ function Home({ darkMode }) {
       <img
         src={Globe}
         alt=""
-        className="object-contain md:h-[30%] hidden mg:block lg:h-[50%]"
+        className="object-contain md:h-[30%] hidden md:block lg:h-[50%]"
       />
     </div>
   );
