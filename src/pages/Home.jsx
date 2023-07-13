@@ -12,11 +12,11 @@ function Home({ darkMode }) {
         </div>
         <Link
           to={"/countries"}
-          className={
+          className={`mt-10 rounded-none px-10 py-5 active:ring-[0.5em] z-[1000] ${
             darkMode
-              ? `bg-white mt-10 rounded-none text-veryDarkBlue px-10 py-5 hover:bg-[#e9e9e9] hover:text-black active:ring-[0.5em] active:ring-[#56565670] z-[1000]`
-              : `bg-veryDarkBlue mt-10 rounded-none text-white px-10 py-5 hover:bg-veryDarkBlue2 hover:text-white active:ring-[0.5em] active:ring-[#56565670] z-[1000]`
-          }
+              ? `bg-white text-veryDarkBlue hover:bg-[#e9e9e9] hover:text-black active:ring-[#56565670]`
+              : `bg-veryDarkBlue text-white hover:bg-veryDarkBlue2 hover:text-white active:ring-[#56565670]`
+          }`}
         >
           GET STARTED
         </Link>

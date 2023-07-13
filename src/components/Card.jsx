@@ -1,69 +1,115 @@
+import React, { useState } from "react";
 import PropTypes from "prop-types";
-import { useState } from "react";
 
-function Card(props) {
+function Card({
+  name,
+  image,
+  population,
+  region,
+  capital,
+  nativeName,
+  subRegion,
+  topLevelDomain,
+  currencies,
+  languages,
+  borders,
+  darkMode,
+}) {
   const [showCountry, setShowCountry] = useState(false);
-  const {
-    name,
-    image,
-    population,
-    region,
-    capital,
-    nativeName,
-    subRegion,
-    topLevelDomain,
-    currencies,
-    languages,
-    borders,
-    darkMode,
-  } = props;
+
+  const renderField = (label, value) => {
+    if (!value) return null;
+    return (
+      <div>
+        <span className="font-semibold">{label}:</span> {value}
+      </div>
+    );
+  };
+
+  const renderCurrencies = () => {
+    if (!currencies || currencies.length === 0) return null;
+    return (
+      <div>
+        <span className="font-semibold">Currencies:</span>{" "}
+        {currencies.map((currency) => currency.name).join(", ")}
+      </div>
+    );
+  };
+
+  const renderLanguages = () => {
+    if (!languages || languages.length === 0) return null;
+    return (
+      <div>
+        <span className="font-semibold">Languages:</span>{" "}
+        {languages.map((language) => language.name).join(", ")}
+      </div>
+    );
+  };
+
+  const renderBorders = () => {
+    if (!borders || borders.length === 0) return null;
+    return (
+      <div>
+        <span className="font-semibold">Border Countries:</span>{" "}
+        <div className="md:flex text-xs md:text-base grid grid-cols-2 gap-2">
+          {borders.map((border) => (
+            <div
+              key={border}
+              className={` px-2 py-0 md:px-3 md:py-2 rounded-xl text-xs ${
+                darkMode
+                  ? `bg-darkBlue text-white`
+                  : `bg-white text-darkGray`
+              }`}
+            >
+              {border}
+            </div>
+          ))}
+        </div>
+      </div>
+    );
+  };
+
   return (
     <div
-      className={
+      className={`h-[24rem] cursor-pointer active:ring-[0.5em] w-[16rem] font-naru rounded-lg overflow-hidden shadow-md ${
         darkMode
-          ? `h-[24rem] cursor-pointer active:ring-[0.5em] active:ring-[#69696920] w-[16rem] font-naru text-white rounded-lg overflow-hidden bg-darkBlue shadow-md shadow-veryDarkBlue`
-          : `h-[24rem] cursor-pointer active:ring-[0.5em] active:ring-[#69696920] w-[16rem] font-naru rounded-lg overflow-hidden text-veryDarkBlue2 bg-white shadow-md shadow-darkGray`
-      }
+          ? `active:ring-[#69696920] text-white bg-darkBlue shadow-veryDarkBlue`
+          : `active:ring-[#69696920] text-veryDarkBlue2 bg-white shadow-md shadow-darkGray`
+      }`}
       onClick={() => setShowCountry(!showCountry)}
     >
       <img
         src={image}
         alt={name}
-        className={
+        className={`w-full h-[50%] shadow-md  ${
           darkMode
-            ? `w-full h-[50%] shadow-md shadow-veryDarkBlue`
-            : `w-full h-[50%] shadow-md shadow-darkGray`
-        }
+            ? `shadow-veryDarkBlue`
+            : `shadow-darkGray`
+        }`}
       />
       <div className="h-full w-full p-5">
         <div className="text-xl font-bold">{name}</div>
         <div className="mt-4 text-sm flex flex-col gap-2">
-          <div>
-            <span className="font-semibold">Population:</span> {population}
-          </div>
-          <div>
-            <span className="font-semibold">Region:</span> {region}
-          </div>
-          <div>
-            <span className="font-semibold">Capital:</span> {capital}
-          </div>
+          {renderField("Population", population)}
+          {renderField("Region", region)}
+          {renderField("Capital", capital)}
         </div>
       </div>
       {showCountry && (
         <div
-          className={
+          className={`h-screen w-screen fixed z-[100] flex flex-col justify-start items-center top-0 left-0 p-24 md:p-32 ${
             darkMode
-              ? `fixed z-[100] bg-veryDarkBlue text-white h-screen w-screen flex flex-col justify-start items-center top-0 left-0 p-24 md:p-32`
-              : `fixed z-[100] h-screen bg-white text-veryDarkBlue2 w-screen flex flex-col justify-start items-center top-0 left-0 p-24 md:p-32`
-          }
+              ? `bg-veryDarkBlue text-white`
+              : `bg-white text-veryDarkBlue2`
+          }`}
         >
           <div className="w-full h-32 flex items-start mx-32">
             <div
-              className={
+              className={` w-auto flex rounded-md gap-5 px-8 py-2 justify-center items-center h-[2em] md:h-[3rem] ${
                 darkMode
-                  ? `w-auto flex rounded-md gap-5 px-8 py-2 justify-center items-center h-[2em] md:h-[3rem] bg-darkBlue shadow-md shadow-veryDarkBlue2 text-white`
-                  : `w-auto flex rounded-md gap-5 px-8 py-2 justify-center items-center h-[2em] md:h-[3rem] bg-white shadow-md shadow-darkGray text-veryDarkBlue2`
-              }
+                  ? `bg-darkBlue shadow-md shadow-veryDarkBlue2 text-white`
+                  : `bg-white shadow-md shadow-darkGray text-veryDarkBlue2`
+              }`}
               onClick={() => setShowCountry(!showCountry)}
             >
               <svg
@@ -82,7 +128,7 @@ function Card(props) {
               <div>Back</div>
             </div>
           </div>
-          <div className="flex flex-col mt-5 md:mt-0 lg:flex-row gap-2 md:gap-10 lg:gap-[10em] h-[25rem] w-[80em] items-center">
+          <div className="flex flex-col mt-10 md:mt-5 lg:flex-row gap-2 md:gap-10 lg:gap-[10em] h-[25rem] w-[60em] items-center">
             <div className="h-full w-[15%] md:w-[25rem] lg:w-[35rem]">
               <img src={image} alt="" className="w-full h-full object-fill" />
             </div>
@@ -90,57 +136,21 @@ function Card(props) {
               <div className="text-3xl font-bold">{name}</div>
               <div className="flex flex-col lg:flex-row gap-2 md:gap-10 text-left my-4">
                 <div className="text-sm flex flex-col gap-2">
-                  <div>
-                    <span className="font-semibold">Native Name:</span>{" "}
-                    {nativeName}
-                  </div>
-                  <div>
-                    <span className="font-semibold">Population:</span>{" "}
-                    {population}
-                  </div>
-                  <div>
-                    <span className="font-semibold">Region:</span> {region}
-                  </div>
-                  <div>
-                    <span className="font-semibold">Sub Region:</span>{" "}
-                    {subRegion}
-                  </div>
-                  <div>
-                    <span className="font-semibold">Capital:</span> {capital}
-                  </div>
+                  {renderField("Native Name", nativeName)}
+                  {renderField("Population", population)}
+                  {renderField("Region", region)}
+                  {renderField("Sub Region", subRegion)}
+                  {renderField("Capital", capital)}
                 </div>
                 <div className="text-sm flex flex-col gap-2">
-                  <div>
-                    <span className="font-semibold">Top Level Domain:</span>{" "}
-                    {topLevelDomain}
-                  </div>
-                  <div>
-                    <span className="font-semibold">Currencies:</span>{" "}
-                    {currencies.map((currency) => currency.name)}
-                  </div>
-                  <div>
-                    <span className="font-semibold">Languages:</span>{" "}
-                    {languages.map((language) => language.name + ", ")}
-                  </div>
+                  {renderField("Top Level Domain", topLevelDomain)}
+                  {renderCurrencies()}
+                  {renderLanguages()}
                 </div>
               </div>
               <div className="flex items-start">
                 <div className="flex justify-center items-start md:items-center gap-5">
-                  <span className="font-semibold">Border Countries:</span>{" "}
-                  <div className="md:flex text-xs md:text-base grid grid-cols-2 gap-2">
-                    {borders.map((border) => (
-                      <div
-                        key={border}
-                        className={
-                          darkMode
-                            ? `bg-darkBlue border-2 border-veryDarkBlue2 text-white px-2 py-0 md:px-3 md:py-2 rounded-sm`
-                            : `bg-white border-2 border-darkGray text-darkGray px-2 py-0 md:px-3 md:py-2 rounded-sm `
-                        }
-                      >
-                        {border}
-                      </div>
-                    ))}
-                  </div>
+                  {renderBorders()}
                 </div>
               </div>
             </div>
@@ -160,8 +170,16 @@ Card.propTypes = {
   nativeName: PropTypes.string,
   subRegion: PropTypes.string,
   topLevelDomain: PropTypes.arrayOf(PropTypes.string),
-  currencies: PropTypes.arrayOf(PropTypes.object),
-  languages: PropTypes.arrayOf(PropTypes.object),
+  currencies: PropTypes.arrayOf(
+    PropTypes.shape({
+      name: PropTypes.string,
+    })
+  ),
+  languages: PropTypes.arrayOf(
+    PropTypes.shape({
+      name: PropTypes.string,
+    })
+  ),
   borders: PropTypes.arrayOf(PropTypes.string),
   darkMode: PropTypes.bool,
 };

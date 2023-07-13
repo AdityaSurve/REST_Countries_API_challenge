@@ -25,11 +25,11 @@ function Countries({ darkMode }) {
     <div className="min-h-screen h-auto overflow-x-hidden font-naru w-full py-32 flex flex-col items-center bg-transparent">
       <div className="flex justify-between px-[12%] items-center w-full ">
         <div
-          className={
+          className={`w-[10em] md:w-[15em] lg:w-[30em] relative p-4 rounded-md flex items-center gap-5 ${
             darkMode
-              ? `bg-darkBlue w-[10em] md:w-[15em] lg:w-[30em] relative p-4 rounded-md flex items-center gap-5`
-              : `bg-white border-2 border-darkGray w-[10em] md:w-[15em] lg:w-[30em] relative p-4 rounded-md flex items-center gap-5 `
-          }
+              ? `bg-darkBlue`
+              : `bg-white border-2 border-darkGray`
+          }`}
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -50,20 +50,20 @@ function Countries({ darkMode }) {
             placeholder="Search by country name..."
             value={searchQuery}
             onChange={(event) => setSearchQuery(event.target.value)}
-            className={
+            className={`bg-transparent outline-none w-full h-full text-sm placeholder:text-sm ${
               darkMode
-                ? `bg-transparent outline-none text-white placeholder-white w-full h-full text-sm placeholder:text-sm`
-                : `bg-transparent outline-none text-veryDarkBlue placeholder-veryDarkBlue w-full h-full text-sm placeholder:text-sm`
-            }
+                ? `text-white placeholder-white`
+                : `text-veryDarkBlue placeholder-veryDarkBlue`
+            }`}
           />
         </div>
 
         <div
-          className={
+          className={`cursor-pointer w-auto md:w-[15rem] relative px-5 py-3 rounded-md flex justify-between items-center ${
             darkMode
-              ? `bg-darkBlue cursor-pointer w-auto md:w-[15rem] relative px-5 py-3 rounded-md flex justify-between items-center`
-              : `bg-white cursor-pointer w-auto md:w-[15rem] border-2 border-darkGray relative px-5 py-3 rounded-md flex justify-between items-center`
-          }
+              ? `bg-darkBlue`
+              : `bg-white border-2 border-darkGray`
+          }`}
           onClick={() => setShowRegions(!showRegions)}
         >
           <span className="md:block hidden">{dropdownDisplay}</span>
@@ -98,11 +98,11 @@ function Countries({ darkMode }) {
           )}
           {showRegions && (
             <div
-              className={
+              className={`shadow-lg top-[120%] text-center absolute gap-1 w-full left-0 flex flex-col ${
                 darkMode
-                  ? `absolute shadow-veryDarkBlue text-white shadow-lg top-[120%] text-center gap-1 w-full left-0 bg-darkBlue flex flex-col`
-                  : `absolute shadow-darkGray shadow-lg top-[120%] text-center text-veryDarkBlue2 gap-1 w-full left-0 bg-white flex flex-col`
-              }
+                  ? `shadow-veryDarkBlue text-white bg-darkBlue`
+                  : `shadow-darkGray text-veryDarkBlue2 bg-white`
+              }`}
             >
               <option
                 value=""
@@ -111,11 +111,11 @@ function Countries({ darkMode }) {
                   setShowRegions(!showRegions);
                   setDropdownDisplay("Filter by Region");
                 }}
-                className={
+                className={`py-2 cursor-pointer ${
                   darkMode
-                    ? `hover:bg-veryDarkBlue2 py-2 cursor-pointer `
-                    : `hover:bg-darkGray py-2 cursor-pointer`
-                }
+                    ? `hover:bg-veryDarkBlue2`
+                    : `hover:bg-darkGray`
+                }`}
               >
                 All Regions
               </option>
@@ -126,11 +126,11 @@ function Countries({ darkMode }) {
                   setShowRegions(!showRegions);
                   setDropdownDisplay("Africa");
                 }}
-                className={
+                className={`py-2 cursor-pointer ${
                   darkMode
-                    ? `hover:bg-veryDarkBlue2 py-2 cursor-pointer`
-                    : `hover:bg-darkGray py-2 cursor-pointer`
-                }
+                    ? `hover:bg-veryDarkBlue2`
+                    : `hover:bg-darkGray`
+                }`}
               >
                 Africa
               </option>
@@ -141,11 +141,11 @@ function Countries({ darkMode }) {
                   setShowRegions(!showRegions);
                   setDropdownDisplay("Americas");
                 }}
-                className={
+                className={`py-2 cursor-pointer ${
                   darkMode
-                    ? `hover:bg-veryDarkBlue2 py-2 cursor-pointer`
-                    : `hover:bg-darkGray py-2 cursor-pointer`
-                }
+                    ? `hover:bg-veryDarkBlue2`
+                    : `hover:bg-darkGray`
+                }`}
               >
                 Americas
               </option>
@@ -156,11 +156,11 @@ function Countries({ darkMode }) {
                   setShowRegions(!showRegions);
                   setDropdownDisplay("Asia");
                 }}
-                className={
+                className={`py-2 cursor-pointer ${
                   darkMode
-                    ? `hover:bg-veryDarkBlue2 py-2 cursor-pointer`
-                    : `hover:bg-darkGray py-2 cursor-pointer`
-                }
+                    ? `hover:bg-veryDarkBlue2`
+                    : `hover:bg-darkGray`
+                }`}
               >
                 Asia
               </option>
@@ -171,11 +171,11 @@ function Countries({ darkMode }) {
                   setShowRegions(!showRegions);
                   setDropdownDisplay("Europe");
                 }}
-                className={
+                className={`py-2 cursor-pointer ${
                   darkMode
-                    ? `hover:bg-veryDarkBlue2 py-2 cursor-pointer`
-                    : `hover:bg-darkGray py-2 cursor-pointer`
-                }
+                    ? `hover:bg-veryDarkBlue2`
+                    : `hover:bg-darkGray`
+                }`}
               >
                 Europe
               </option>
@@ -186,11 +186,11 @@ function Countries({ darkMode }) {
                   setShowRegions(!showRegions);
                   setDropdownDisplay("Oceania");
                 }}
-                className={
+                className={`py-2 cursor-pointer ${
                   darkMode
-                    ? `hover:bg-veryDarkBlue2 py-2 cursor-pointer`
-                    : `hover:bg-darkGray py-2 cursor-pointer`
-                }
+                    ? `hover:bg-veryDarkBlue2`
+                    : `hover:bg-darkGray`
+                }`}
               >
                 Oceania
               </option>
